@@ -3,19 +3,73 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:gravity="center">
+	android:orientation="vertical">
 
-	<Button
+	<LinearLayout
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="Download"
-		android:onClick="dltwrp"/>
+		android:layout_width="match_parent"
+		android:orientation="horizontal">
 
-	<Button
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="TWRP 0.0.0.0"/>
+
+	</LinearLayout>
+
+	<LinearLayout
 		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="Install"
-		android:onClick="installtwrp"/>
+		android:layout_width="match_parent"
+		android:orientation="horizontal">
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Download"
+			android:onClick="dltwrp"
+			android:layout_weight="1.0"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Install"
+			android:onClick="installtwrp"
+			android:layout_weight="1.0"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:text="TWRP 0.0.0.0"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:orientation="horizontal">
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Download"
+			android:layout_weight="1.0"/>
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Install"
+			android:layout_weight="1.0"/>
+
+	</LinearLayout>
 
 </LinearLayout>
 
