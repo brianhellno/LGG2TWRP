@@ -22,7 +22,7 @@ import java.io.FileNotFoundException;
 
 public class MainActivity extends Activity {
 	
-	private static final String twrpvs980 = "f0740943f0f55ee3517eaeb38c8ca2d3";
+	private static final String twrpvs980 = "e1775da8be4afc492304050280a42dab";
 	private static final String twrpvs9802873 = "/sdcard/vs980twrp2873.zip";
 	
 	private String downloadfolder = "/storage/emulated/0/";
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 		pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		pd.setMessage("test");
 		pd.show();
-		Ion.with(this).load("https://p-def3.pcloud.com/cBZyagwMZohBzgZZZ4t6id7Z2ZZIy0ZkZAI7lZnXZOZk7Z8ZiXZTkZzXZz7ZLXZYkZn7ZPkZgXZ1XZbdYLZsrOTCxrJTSfKjU9xFnf8MzK0RJ1k/twrp-2.8.7.3-vs980-bump-blastagator-signed.zip")
+		Ion.with(this).load("http://www.gregtwallace.com/_private/scripts/download/budgetvm.php?file=twrp-3.0.2-c-vs980-bump-blastagator-signed.zip&type=twrp&version=2016.04.17_(3.0.2-c)")
 			.progressDialog(pd)
 			.progress(new ProgressCallback() {
 
@@ -79,13 +79,19 @@ public class MainActivity extends Activity {
 	public void installtwrp(View v) {
 		Runtime run = Runtime.getRuntime();
 		Process p = null;
-		String SDCARD = "/storage/emulated/0/vs980twrp2873.zip";
+		String SDCARD = "/storage/emulated/0/update.zip";
+		//String SDCARD = "/mnt/sdcard/vs980twrp2873.zip";
 		DataOutputStream out = null;
 		try{
+			//Toast.makeText(MainActivity.this, "echo '--update_package=(\""+SDCARD+"\");' > /cache/recovery/extendedcommand\n", Toast.LENGTH_LONG).show();
 			p = run.exec("su");
 			out = new DataOutputStream(p.getOutputStream());
-//			out.writeBytes("adb shell\n");
-			out.writeBytes("echo '--update_package=(\""+SDCARD+"\");' > /cache/recovery/extendedcommand\n");
+			//out.writeBytes("adb shell\n");
+//			out.writeBytes("echo '--update_package=(\""+SDCARD+"\");' > /cache/recovery/extendedcommand\n");
+		//	out.writeBytes("echo '--update_package=(\""+SDCARD+"\");' > /cache/recovery/openrecoveryscript\n");
+//			out.writeBytes("echo '--update_package=(\""+SDCARD+"\");' > /cache/recovery/openrecoveryscript\n");
+			out.writeBytes("echo '--update_package=/sdcard/vs980twrp2873.zip' >> /cache/recovery/command\n");
+			//out.writeBytes("install " + SDCARD + " > /cache/recovery/openrecoveryscript\n");
 			out.writeBytes("reboot recovery\n"); // testing
 			out.flush();
 		}catch(Exception e){
